@@ -42,7 +42,10 @@ class Program
         "landscape", "buildings", "tower", "sky", "mountain",
         "cat", "water", "ocean", "sea", "lake", "river",
         "flower", "trees", "tree", "tarawih", "solat",
-        "sunnah", "cloud", "kitten", "panda", "islamic"
+        "sunnah", "cloud", "kitten", "panda", "islamic",
+        "galaxy", "space", "earth", "moon", "star",
+        "twilight", "moonrise", "sunrise", "sunset", "moonlight",
+        "waterfall", "forest"
     };
     private const int desiredWidth = 1000;
     private const int desiredHeight = 1000;
