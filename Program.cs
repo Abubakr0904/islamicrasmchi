@@ -11,7 +11,7 @@ class Program
     private const string PexelsApiKey = "U6srRnBlRpJTjKLpyE3dN5Ozp4C1MzOxHC25bCTF2D08saISmsbU8X11";
 
     // Pexels API endpoint
-    private const string PexelsApiUrl = "https://api.pexels.com/v1/search";
+    private const string PexelsApiUrl = "https://api.pexels.com/v1/search?per_page=1&size=original";
 
     // Search query for Pexels
     private const string PexelsQuery = "nature";
@@ -55,7 +55,7 @@ class Program
             // Send a GET request to the Pexels API with the search query
             var random = new Random().Next(islamicQueries.Length);
             var query = islamicQueries[random];
-            var response = await httpClient.GetAsync($"{PexelsApiUrl}?query={query}");
+            var response = await httpClient.GetAsync($"{PexelsApiUrl}&query={query}");
             // var response = await httpClient.GetAsync($"{PexelsApiUrl}?query=islamic");
             var responseContent = await response.Content.ReadAsStringAsync();
 
@@ -65,7 +65,7 @@ class Program
             if (count <= 0)
                 continue;
             var randomPhoto = responseData?.Photos?[new Random().Next(count)];
-            var photoUrl = randomPhoto?.Src?.Large;
+            var photoUrl = randomPhoto?.Src?.Original;
 
             if (!string.IsNullOrEmpty(photoUrl))
             {
@@ -108,8 +108,11 @@ class Program
     }
 
     public class PexelsPhotoSource
-    {
-        [JsonProperty("large")]
-        public string Large { get; set; }
-    }
+{
+    [JsonProperty("large")]
+    public string Large { get; set; }
+
+    [JsonProperty("original")]
+    public string Original { get; set; }
+}
 }
