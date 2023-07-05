@@ -34,15 +34,15 @@ class Program
 
     private static readonly string[] islamicQueries = new string[]
     {
-        "islamic", "Mecca", "Haj", "Koran", "Quran",
-        "Fajr", "Dhuhr", "Asr", "Maghrib", "Isha", "Ishaa",
-        "Alhamdulillah", "Alhamdulilah", "Allahumma", "Allahu Akbar",
-        "Zikr", "Subhanalloh", "MashaAlloh", "nature", "muslim", "muslimah",
-        "islam", "islamia", "islamiya", "islamia", "islamia",
-        "islamic", "islamic", "islamic", "islamic", "islamic", "islamic",
-        "islamic", "islamic", "islamic", "islamic", "islamic", "islamic",
-        "islamic love", "Aqso", "beatiful mosques",
-        "mosque", "nature", "madinah", "islamic"
+        "islamic", "Mecca", "Madina", "Haj", "Quran",
+        "Fajr", "Dhuhr", "Asr", "Maghrib",
+        "Alhamdulillah", "Allahu Akbar", "Subhanalloh", "MashaAlloh",
+        "nature", "muslim", "muslimah",
+        "islam", "Aqso", "mosque", "nature",
+        "landscape", "buildings", "tower", "sky", "mountain",
+        "cat", "water", "ocean", "sea", "lake", "river",
+        "flower", "trees", "tree", "tarawih", "solat",
+        "sunnah", "cloud", "kitten", "panda", "islamic"
     };
     private const int desiredWidth = 1000;
     private const int desiredHeight = 1000;
