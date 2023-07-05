@@ -1,0 +1,7 @@
+C:\Developer\Coding\Python\tgPhotoChangerBot\bin\Release\net7.0\publish\tgPhotoChangerBot.exe
+C:\Developer\Coding\Python\tgPhotoChangerBot\bin\Release\net7.0\publish\tgPhotoChangerBot.dll
+C:\Developer\Coding\Python\tgPhotoChangerBot\bin\Release\net7.0\publish\tgPhotoChangerBot.deps.json
+C:\Developer\Coding\Python\tgPhotoChangerBot\bin\Release\net7.0\publish\tgPhotoChangerBot.runtimeconfig.json
+C:\Developer\Coding\Python\tgPhotoChangerBot\bin\Release\net7.0\publish\tgPhotoChangerBot.pdb
+C:\Developer\Coding\Python\tgPhotoChangerBot\bin\Release\net7.0\publish\Newtonsoft.Json.dll
+C:\Developer\Coding\Python\tgPhotoChangerBot\bin\Release\net7.0\publish\Telegram.Bot.dll

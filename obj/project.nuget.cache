@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "aTdbIJXyINUJlZeqmkXGro8ycizBRQItjTWn5tCMXAG83UNF+M/VuclZbUYOjKNqNQqZAKwZvkTDK0VKWejr9g==",
+  "success": true,
+  "projectFilePath": "C:\\Developer\\Coding\\Python\\tgPhotoChangerBot\\tgPhotoChangerBot.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Abubakr.Bakhramov\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Abubakr.Bakhramov\\.nuget\\packages\\telegram.bot\\19.0.0\\telegram.bot.19.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
