@@ -16,3 +16,4 @@ C:\Developer\Coding\Python\tgPhotoChangerBot\obj\Debug\net7.0\refint\tgPhotoChan
 C:\Developer\Coding\Python\tgPhotoChangerBot\obj\Debug\net7.0\tgPhotoChangerBot.pdb
 C:\Developer\Coding\Python\tgPhotoChangerBot\obj\Debug\net7.0\tgPhotoChangerBot.genruntimeconfig.cache
 C:\Developer\Coding\Python\tgPhotoChangerBot\obj\Debug\net7.0\ref\tgPhotoChangerBot.dll
+C:\Developer\Coding\Python\tgPhotoChangerBot\bin\Debug\net7.0\SixLabors.ImageSharp.dll

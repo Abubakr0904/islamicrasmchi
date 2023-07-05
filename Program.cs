@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SixLabors.ImageSharp.Formats.Jpeg;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -11,7 +12,7 @@ class Program
     private const string PexelsApiKey = "U6srRnBlRpJTjKLpyE3dN5Ozp4C1MzOxHC25bCTF2D08saISmsbU8X11";
 
     // Pexels API endpoint
-    private const string PexelsApiUrl = "https://api.pexels.com/v1/search?per_page=1&size=original";
+    private const string PexelsApiUrl = "https://api.pexels.com/v1/search?size=original";
 
     // Search query for Pexels
     private const string PexelsQuery = "nature";
@@ -43,6 +44,8 @@ class Program
         "islamic love", "Aqso", "beatiful mosques",
         "mosque", "nature", "madinah", "islamic"
     };
+    private const int desiredWidth = 1000;
+    private const int desiredHeight = 1000;
 
     static async Task Main(string[] args)
     {
@@ -73,25 +76,48 @@ class Program
                 var botClient = new TelegramBotClient(ApiToken);
                 // Get the updates for the bot
 
-                // Get the updates for the bot
-                var updates = await botClient.GetUpdatesAsync();
-
                 // Upload and set the new profile photo
                 using (var photoStream = await httpClient.GetStreamAsync(photoUrl))
                 {
-                    var inputFile = new InputFileStream(photoStream);
+                    var resizedPhotoStream = ResizePhoto(photoStream, desiredWidth, desiredHeight);
+                    var inputFile = new InputFileStream(resizedPhotoStream, "resized_photo.jpg");
                     await botClient.SetChatPhotoAsync(groupId, inputFile);
                 }
 
                 Console.WriteLine($"Profile photo changed successfully in theme {query}!");
+
+                var updates = await botClient.GetUpdatesAsync();
+                var lastUpdate = updates?.Length > 0 ? updates[updates.Length - 1] : null;
+                if (lastUpdate?.Message != null)
+                {
+                    var messageId = lastUpdate.Message.MessageId;
+                    await botClient.DeleteMessageAsync(groupId, messageId);
+                }
             }
             else
             {
                 Console.WriteLine("Failed to fetch a photo from Pexels API.");
             }
 
-            await Task.Delay(TimeSpan.FromSeconds(180));
+            await Task.Delay(TimeSpan.FromSeconds(100));
         }
+    }
+
+    // Resize the photo stream to the specified width and height
+    public static Stream ResizePhoto(Stream photoStream, int width, int height)
+    {
+        using var image = Image.Load(photoStream);
+        image.Mutate(x => x.Resize(new ResizeOptions
+        {
+            Size = new Size(width, height),
+            Mode = ResizeMode.Max
+        }));
+
+        var resizedPhotoStream = new MemoryStream();
+        image.Save(resizedPhotoStream, new JpegEncoder());
+        resizedPhotoStream.Position = 0;
+
+        return resizedPhotoStream;
     }
 
     // Classes for deserializing Pexels API response
@@ -108,11 +134,11 @@ class Program
     }
 
     public class PexelsPhotoSource
-{
-    [JsonProperty("large")]
-    public string Large { get; set; }
+    {
+        [JsonProperty("large")]
+        public string Large { get; set; }
 
-    [JsonProperty("original")]
-    public string Original { get; set; }
-}
+        [JsonProperty("original")]
+        public string Original { get; set; }
+    }
 }
